@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagantour - Paket Wisata Terbaik</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-pL+1UxbU9XDoNztaDttYXt/yI8LkZ2A4Vib1xtMZuGk=" crossorigin="" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-o7N1RhkqrV+7kXk02qS4uENzSxkbn6nVNsBsXSqtxIo=" crossorigin=""></script>
+    <!-- Lightbox CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Naga<span>tour</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinasi</a></li>
+                <li><a href="#why-us">Mengapa Kami</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Jelajahi Keindahan Indonesia</h1>
+            <p>Temukan pengalaman wisata tak terlupakan dengan paket terbaik dari Nagantour</p>
+            <a href="#destinations" class="btn">Lihat Paket Wisata</a>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="section" id="destinations">
+        <div class="section-title">
+            <h2>Paket Wisata Populer</h2>
+        </div>
+        <div class="destinations">
+            <div class="destination-card">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Jogja">
+                </div>
+                <div class="destination-info">
+                    <h3>PART WASIA JOGJA</h3>
+                    <p>Nikmati keindahan budaya dan alam Yogyakarta dengan paket lengkap</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Yogyakarta</span>
+                    </div>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1560840067-ddcaeb7831d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Solo">
+                </div>
+                <div class="destination-info">
+                    <h3>PART WASIA SOLO</h3>
+                    <p>Jelajahi kota budaya Solo dengan kemewahan dan kenyamanan</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Surakarta</span>
+                    </div>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1586861203738-2f1a5d0a7a5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Sewarang">
+                </div>
+                <div class="destination-info">
+                    <h3>PART WASIA SEWARANG</h3>
+                    <p>Petualangan seru di alam liar Sewarang</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jawa Tengah</span>
+                    </div>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1560851249-9b9e4b8b8b0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Dieng">
+                </div>
+                <div class="destination-info">
+                    <h3>PART WASIA DIENG</h3>
+                    <p>Keindahan alam pegunungan Dieng yang memesona</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jawa Tengah</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-us" id="why-us">
+        <div class="section-title">
+            <h2>Mengapa Memilih Kami?</h2>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3>Harga Kompetitif</h3>
+                <p>Kami menawarkan paket dengan harga yang terjangkau namun tetap menggunakan pelayanan yang
+                    menyenangkan dan profesional.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-list"></i>
+                </div>
+                <h3>Pilihan Variatif</h3>
+                <p>Kami memiliki pilihan produk beragam mulai dari transportasi, akomodasi penginapan, restaurant hingga
+                    objek wisata untuk menunjang kenyaman liburan Anda.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Berpengalaman</h3>
+                <p>Dengan pengalaman lebih dari 10 Tahun membuat kami senantiasa menjadi perusahaan terdepan dalam
+                    bidang jasa pariwisata.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Praktis Terpercaya</h3>
+                <p>Bersama kami semua menjadi mudah. Pemesanan produk jasa dimana saja dan kapan saja bisa Anda lakukan
+                    dengan aman dan terpercaya.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video YouTube -->
+    <section class="section" id="video-promosi">
+        <div class="section-title">
+            <h2>Video Promosi</h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+            <iframe width="360" height="215" src="https://www.youtube.com/embed/9-KBepgQytM"
+                title="Jepang Sekarang dan Selamanya | JNTO" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Peta Interaktif -->
+    <section class="section" id="peta">
+        <div class="section-title">
+            <h2>Peta Destinasi</h2>
+        </div>
+        <div style="max-width: 1000px; margin: auto; border-radius: 10px; overflow: hidden;">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63807.76671176046!2d116.10393605!3d-1.7367895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df05c46844f1963%3A0xb35fd2d717db6be7!2sModang%2C%20Kec.%20Kuaro%2C%20Kabupaten%20Paser%2C%20Kalimantan%20Timur!5e0!3m2!1sid!2sid!4v1747820122559!5m2!1sid!2sid"
+                style="width: 100%; height: 400px; border: 0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Galeri Instagram -->
+    <section class="section" id="galeri">
+        <div class="section-title">
+            <h2>Galeri Instagram</h2>
+        </div>
+        <div class="galeri-grid">
+            <a href="p1.jpg" class="galeri-item"><img src="p1.jpg" alt="galeri"></a>
+            <a href="p2.jpg" class="galeri-item"><img src="p2.jpg" alt="galeri"></a>
+            <a href="p3.jpg" class="galeri-item"><img src="p3.jpg" alt="galeri"></a>
+            <a href="p4.jpg" class="galeri-item"><img src="p4.jpg" alt="galeri"></a>
+            <a href="p5.jpg" class="galeri-item"><img src="p5.jpg" alt="galeri"></a>
+            <a href="p6.jpg" class="galeri-item"><img src="p6.jpg" alt="galeri"></a>
+            <a href="p7.jpg" class="galeri-item"><img src="p7.jpg" alt="galeri"></a>
+            <a href="p8.jpg" class="galeri-item"><img src="p8.jpg" alt="galeri"></a>
+            <a href="p9.jpg" class="galeri-item"><img src="p9.jpg" alt="galeri"></a>
+            <a href="p10.jpg" class="galeri-item"><img src="p10.jpg" alt="galeri"></a>
+            <a href="p11.jpg" class="galeri-item"><img src="p11.jpg" alt="galeri"></a>
+            <a href="p12.jpg" class="galeri-item"><img src="p12.jpg" alt="galeri"></a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>Testimoni Pelanggan</h2>
+        </div>
+
+        <!-- Form Ulasan -->
+        <div class="testimonial-form" id="review-form">
+            <h3>Berikan Ulasan Anda</h3>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required />
+                </div>
+                <div class="form-group">
+                    <label>Rating</label>
+                    <div class="stars" id="starContainer">
+                        <span class="star" data-rating="1"><i class="fas fa-star"></i></span>
+                        <span class="star" data-rating="2"><i class="fas fa-star"></i></span>
+                        <span class="star" data-rating="3"><i class="fas fa-star"></i></span>
+                        <span class="star" data-rating="4"><i class="fas fa-star"></i></span>
+                        <span class="star" data-rating="5"><i class="fas fa-star"></i></span>
+                    </div>
+                    <input type="hidden" id="rating" value="0" required />
+                </div>
+                <div class="form-group">
+                    <label for="review">Ulasan Anda</label>
+                    <textarea id="review" required></textarea>
+                </div>
+                <button type="submit" class="btn">Kirim Ulasan</button>
+            </form>
+        </div>
+
+        <!-- Tempat tampilan ulasan -->
+        <!-- Review Slider -->
+        <div class="reviews-slider-wrapper">
+            <div class="reviews-slider" id="reviewsContainer"></div>
+        </div>
+
+    </section>
+    <!-- Reviews Display -->
+    <div class="reviews-container" id="reviewsContainer">
+        <!-- Reviews will be added here dynamically -->
+    </div>
+    </section>
+
+    <div class="container ticketing-container">
+        <h2 class="ticketing-header">Estimasi Tarif Transportasi Kalimantan</h2>
+
+        <div class="form-group">
+            <label for="asal">Kota/Kabupaten Asal</label>
+            <select id="asal">
+                <option value="">-- Pilih Kota/Kabupaten Asal --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="tujuan">Kota/Kabupaten Tujuan</label>
+            <select id="tujuan" disabled>
+                <option value="">-- Pilih Kota/Kabupaten Tujuan --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Moda Transportasi</label>
+            <div>
+                <button class="btn-moda aktif" data-moda="ferry">Ferry</button>
+                <button class="btn-moda" data-moda="bus">Bus</button>
+                <button class="btn-moda" data-moda="travel">Travel</button>
+            </div>
+        </div>
+
+        <div id="hasil" class="hasil hidden price-display">
+            <p>Jarak: <span id="jarak">0</span> km</p>
+            <p>Estimasi Tarif: <span id="tarif">IDR 0</span></p>
+        </div>
+    </div>
+
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="section-title">
+            <h2>Hubungi Kami</h2>
+        </div>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <p style="margin-bottom: 2rem;">Untuk informasi lebih lanjut tentang paket wisata kami, silakan hubungi:</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <i class="fas fa-phone" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <p>+62 123 4567 890</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-envelope" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <p>info@nagantour.com</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-map-marker-alt"
+                        style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                    <p>Jl. Wisata No. 123, Yogyakarta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Tentang Nagantour</h3>
+                <p>Nagantour adalah perusahaan jasa pariwisata profesional dengan pengalaman lebih dari 10 tahun
+                    melayani pelanggan.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Link Cepat</h3>
+                <a href="#home">Home</a>
+                <a href="#destinations">Destinasi</a>
+                <a href="#why-us">Mengapa Kami</a>
+                <a href="#testimonials">Testimoni</a>
+                <a href="#contact">Kontak</a>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak Kami</h3>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                <p><i class="fas fa-envelope"></i> info@nagantour.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Wisata No. 123, Yogyakarta</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Nagantour. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
