@@ -165,9 +165,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.marker(koordinatDesa).addTo(map)
     .bindPopup("<b>Desa Modang</b><br>Kecamatan Kuaro, Kabupaten Paser")
     .openPopup();
-
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     const asalSelect = document.getElementById('asal');
     const tujuanSelect = document.getElementById('tujuan');
     const btnModa = document.querySelectorAll('.btn-moda');
@@ -179,69 +177,39 @@ document.addEventListener('DOMContentLoaded', () => {
         'Balikpapan', 'Banjarmasin', 'Pontianak', 'Palangka Raya', 'Samarinda', 'Tarakan'
     ];
 
-    // Data jarak antar kota (km)
-    const jarakAntarKota = {
-        'Balikpapan-Banjarmasin': 430,
-        'Balikpapan-Pontianak': 670,
-        'Balikpapan-Palangka Raya': 390,
-        'Balikpapan-Samarinda': 120,
-        'Balikpapan-Tarakan': 590,
-        'Banjarmasin-Pontianak': 830,
-        'Banjarmasin-Palangka Raya': 300,
-        'Banjarmasin-Samarinda': 520,
-        'Banjarmasin-Tarakan': 760,
-        'Pontianak-Palangka Raya': 490,
-        'Pontianak-Samarinda': 790,
-        'Pontianak-Tarakan': 860,
-        'Palangka Raya-Samarinda': 390,
-        'Palangka Raya-Tarakan': 620,
-        'Samarinda-Tarakan': 520
+    // Jarak dari masing-masing kota ke Desa Modang (dalam km)
+    const jarakKeModang = {
+        'Balikpapan': 150,
+        'Banjarmasin': 400,
+        'Pontianak': 700,
+        'Palangka Raya': 450,
+        'Samarinda': 200,
+        'Tarakan': 600
     };
 
-    // Tarif per km moda transportasi (IDR)
     const tarifPerKm = {
         ferry: 2500,
         bus: 2000,
         travel: 3000
     };
 
-    // Isi dropdown asal dan tujuan
+    // Isi dropdown asal
     kota.forEach(k => {
-        const opt1 = document.createElement('option');
-        opt1.value = k.toLowerCase();
-        opt1.textContent = k;
-        asalSelect.appendChild(opt1);
-
-        const opt2 = document.createElement('option');
-        opt2.value = k.toLowerCase();
-        opt2.textContent = k;
-        tujuanSelect.appendChild(opt2);
+        const opt = document.createElement('option');
+        opt.value = k;
+        opt.textContent = k;
+        asalSelect.appendChild(opt);
     });
 
-    // Aktifkan dropdown tujuan kalau asal sudah dipilih
-    asalSelect.addEventListener('change', () => {
-        tujuanSelect.disabled = !asalSelect.value;
+    // Tujuan hanya ke Desa Modang
+    const optModang = document.createElement('option');
+    optModang.value = 'Desa Modang';
+    optModang.textContent = 'Desa Modang';
+    tujuanSelect.appendChild(optModang);
+    tujuanSelect.disabled = true; // tidak bisa diganti
 
-        // Reset tujuan kalau sama dengan asal
-        if (tujuanSelect.value === asalSelect.value) {
-            tujuanSelect.value = '';
-        }
-
-        hitungTarif();
-    });
-
-    // Event change tujuan
-    tujuanSelect.addEventListener('change', () => {
-        // Disable pilihan tujuan yang sama dengan asal supaya gak bisa dipilih
-        Array.from(tujuanSelect.options).forEach(opt => {
-            opt.disabled = (opt.value === asalSelect.value && opt.value !== '');
-        });
-
-        hitungTarif();
-    });
-
-    // Pilih moda transportasi
     let modaTerpilih = 'ferry';
+
     btnModa.forEach(btn => {
         btn.addEventListener('click', () => {
             btnModa.forEach(b => b.classList.remove('aktif'));
@@ -251,25 +219,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Fungsi hitung jarak dan tarif
+    asalSelect.addEventListener('change', hitungTarif);
+
     function hitungTarif() {
         const asal = asalSelect.value;
-        const tujuan = tujuanSelect.value;
+        const tujuan = 'Desa Modang';
 
-        if (!asal || !tujuan || asal === tujuan) {
+        if (!asal) {
             hasilDiv.classList.add('hidden');
             return;
         }
 
-        // Kapitalisasi setiap kata agar cocok key
-        function capitalizeEachWord(str) {
-            return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-        }
-
-        const k1 = capitalizeEachWord(asal) + '-' + capitalizeEachWord(tujuan);
-        const k2 = capitalizeEachWord(tujuan) + '-' + capitalizeEachWord(asal);
-
-        let jarak = jarakAntarKota[k1] || jarakAntarKota[k2] || null;
+        const jarak = jarakKeModang[asal] || null;
 
         if (!jarak) {
             jarakSpan.textContent = '-';
